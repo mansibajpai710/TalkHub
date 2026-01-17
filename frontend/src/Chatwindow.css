@@ -1,0 +1,140 @@
+.Chatwindow{
+    background-color: #212121;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
+/* Scrollbar for webkit browsers (Chrome, Edge) */
+.Chatwindow::-webkit-scrollbar {
+    width: 8px;
+}
+
+.Chatwindow::-webkit-scrollbar-track {
+    background: #1e1e1e;  /* dark background */
+    border-radius: 4px;
+}
+
+.Chatwindow::-webkit-scrollbar-thumb {
+    background-color: #555; /* darker thumb */
+    border-radius: 4px;
+    border: 2px solid #1e1e1e;
+}
+
+/* For Firefox */
+.Chatwindow {
+    scrollbar-width: thin;
+    scrollbar-color: #555 #1e1e1e;
+}
+
+
+
+.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ .navbar span{
+    margin: 1rem 2rem;
+
+}
+.usericondiv{
+    margin: 1rem 2rem;
+}
+.usericon{
+    background-color: #339cff;
+    height: 25apx;
+    width: 25px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.chatInput{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inputbox{
+    width: 100%;
+    position: relative;
+    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+input{
+    width: 100%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    font-size: 0.9rem;
+    border-radius: 14px;
+}
+input:focus{
+    outline: none;
+}
+
+.submit{
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submit i:hover{
+    color: #fff;
+}
+.info{
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    color: #b4b4b4;;
+}
+
+
+
+.dropdown{
+    position: absolute;
+    top: 4rem;
+    right: 4rem;
+    width: 150px;
+    background-color: #323232;
+    border-radius: 14px;
+    padding: 0.3rem;
+    text-align: left;
+    z-index: 1000;
+    box-shadow: 0px 8px 2px rgba(0,0,0.1 );
+}
+
+.dropdownitems{
+    font-size: 0.9rem;
+    margin: 0.3rem 0rem;
+    padding: 0.5rem 0.2rem;
+    cursor: pointer;
+}
+
+.dropdownitems:hover{
+    background-color:rgba(180,180,180,0.1 ) ;
+    border-radius: 6px;
+    
+}
+
+
+
+
