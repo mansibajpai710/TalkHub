@@ -78,8 +78,8 @@ const deleteThread=async (threadId) => {
   return (
     <div >
       <section className="sidebar">
-        <button onClick={createNewChat}>
-          <span><i className="fa-regular fa-message"></i></span>
+        <button onClick={createNewChat} >
+          <span><i className="fa-regular fa-message" ></i></span> New chat
            <span><i className="fa-solid fa-pen-to-square"></i></span>
         </button>
 

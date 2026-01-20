@@ -5,14 +5,47 @@ import { useContext,useState,useEffect } from "react";
 import{ScaleLoader} from "react-spinners";
 
 
+import { useRef } from "react";
+
+
+
+
+const SpeechRecognition =
+  window.SpeechRecognition || window.webkitSpeechRecognition;
+
+
+
 function Chatwindow() {
   const {prompt,setPrompt,reply,setReply,currThreadId,prevChats,setPrevChats ,setNewChat}=useContext(MyContext);
   const [loading,setLoading]=useState(false);
   const [isOpen,setIsOpen]=useState(false);
 
+
+  const recognitionRef = useRef(null);
+
+
+
+
+  
+
+
   const getReply=async () => {
-    setLoading(true);
-    setNewChat(false);
+
+
+    console.log("SEND CLICKED");
+    
+    if (recognitionRef.current) {
+    recognitionRef.current.stop();
+    recognitionRef.current = null;
+  } 
+
+   
+
+  setLoading(true);
+  setNewChat(false);
+
+
+
     if (!prompt.trim()) return;
 
   if (!currThreadId) {
@@ -58,6 +91,48 @@ function Chatwindow() {
  const handleProfileClick=()=>{
     setIsOpen(!isOpen);
  }
+
+
+
+
+
+ const startListening = () => {
+
+  console.log("MIC CLICKED");
+  
+  if (!SpeechRecognition) {
+    alert("Speech Recognition not supported");
+    return;
+  }
+
+  // 🛑 Agar already mic on hai to pehle stop karo
+  if (recognitionRef.current) {
+    recognitionRef.current.stop();
+  }
+
+  const recog = new SpeechRecognition();
+  recog.lang = "en-IN";
+  recog.continuous = false;
+  recog.interimResults = false;
+
+  recog.onresult = (event) => {
+    const text = event.results[0][0].transcript;
+    setPrompt(text);
+  };
+
+  recog.onerror = (e) => {
+    console.error("Mic error:", e);
+  };
+
+  recog.onend = () => {
+    console.log("🎤 Mic stopped");
+    recognitionRef.current = null;
+  };
+
+  recognitionRef.current = recog;
+  recog.start();
+};
+
 
 
 
@@ -107,6 +182,15 @@ function Chatwindow() {
           
           <div className="submit" onClick={getReply}>
             <i className="fa-solid fa-paper-plane"></i>
+          </div>
+          <div className="submit">
+            <i
+              className="fa-solid fa-microphone microphone"
+              onClick={(e) => {
+              e.stopPropagation();   // 🔥 stops bubbling
+              startListening();
+               }}
+             ></i>
           </div>
         </div>
         <p className="info">

@@ -87,8 +87,22 @@ input:focus{
     outline: none;
 }
 
+
+.submit:first-of-type {
+  z-index: 2;
+}
+
+
+
+
 .submit{
     cursor: pointer;
+
+
+    position: relative;
+    z-index: 1;
+
+
     height: 35px;
     width: 35px;
     font-size: 20px;
@@ -138,3 +152,7 @@ input:focus{
 
 
 
+.microphone{
+    display: flex;
+    margin-right: 5rem;
+}
