@@ -98,7 +98,7 @@ const deleteThread=async (threadId) => {
 
         <div className="sign">
           <p>
-            BY Mansi Bajpai &hearts;
+            BY   Mansi   Bajpai 
           </p>
         </div>
       </section>

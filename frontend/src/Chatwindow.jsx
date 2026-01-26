@@ -83,7 +83,7 @@ function Chatwindow() {
       { role: "assistant", content: reply }
     ]));
 
-    setPrompt(""); // input clear AFTER reply
+    setPrompt(""); 
   }
 }, [reply]);
 
@@ -105,7 +105,7 @@ function Chatwindow() {
     return;
   }
 
-  // 🛑 Agar already mic on hai to pehle stop karo
+  
   if (recognitionRef.current) {
     recognitionRef.current.stop();
   }

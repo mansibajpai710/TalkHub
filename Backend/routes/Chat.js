@@ -4,11 +4,7 @@
 
 
  const router=express.Router();
-
-
-
  
-
  router.get("/thread",async(req ,res)=>{
     try{
         const threads=await Thread.find({}).sort({updatedAt:-1});
