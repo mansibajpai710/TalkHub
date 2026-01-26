@@ -6,11 +6,11 @@ const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
-// ✅ Utility function
+// Utility function
 export async function getGeminiResponse(userMessage) {
   try {
 
-    // 🔥 FORCE MARKDOWN OUTPUT
+    
     const prompt = `
 You are a helpful assistant.
 
@@ -34,7 +34,6 @@ ${userMessage}
       ],
     });
 
-    // ❗ DO NOT CLEAN / MODIFY RESPONSE
     return response.text;
 
   } catch (error) {
